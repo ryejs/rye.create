@@ -1,0 +1,11 @@
+{
+  "name": "rye.create",
+  "version": "0.0.1",
+  "main": "rye.create.js",
+  "scripts": {
+    "test": "mocha-phantomjs test/index.html"
+  },
+  "license": "MIT",
+  "description": "Zen-coding-like DOM element creation",
+  "keywords": ["dom", "jquery", "zepto", "rye", "elements", "zen", "emmet"]
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rye.create</title>
+    <link rel="stylesheet" href="deps/mocha.css" />
+</head>
+<body>
+    <div id="mocha"></div>
+    <script>
+        // mock global 
+        window.$ = {}
+    </script>
+    <script src="../rye.create.js"></script>
+    <script src="deps/mocha.js"></script>
+    <script src="deps/chai.js"></script>
+    <script>
+        mocha.ui('tdd')
+        assert = chai.assert
+    </script>
+    <script src="spec.js"></script>
+    <script>
+        ;(window.mochaPhantomJS || mocha).run()
+    </script>
+</body>
+</html>
