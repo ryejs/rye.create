@@ -140,19 +140,26 @@
                 }
             }
             
-            // Insert `count` copies of the element per parent
+            // Insert `count` copies of the element per parent. If the current operator
+            // is `+` we mark the elements to remove it from `parents` in the next iteration.
             _slice.call(parents, 0).forEach(function(parent, parentIndex){
                 for (var index = 0; index < count; index++){
                     // Use parentIndex if this element has a count of 1
                     var _index = count > 1 ? index : parentIndex
-                    parent.appendChild(Element(_index, tag, id, classes, text, attrs))
+
+                    var element = Element(_index, tag, id, classes, text, attrs)
+                    if (op === '+') element._sibling = true
+
+                    parent.appendChild(element)
                 }
             })
 
-            // If the next operator is '>' replace `parents` with their childNodes for the next iteration
+            // If the next operator is '>' replace `parents` with their childNodes for the next iteration.
             if (op === '>') {
                 parents = parents.reduce(function(p,c,i,a){
-                    return p.concat(_slice.call(c.childNodes, 0).filter(function(e){ return e.nodeType === 1 }))
+                    return p.concat(_slice.call(c.childNodes, 0).filter(function(el){
+                        return el.nodeType === 1 && !el._sibling
+                    }))
                 }, [])
             }
 
