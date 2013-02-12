@@ -175,7 +175,6 @@ suite('samples', function(){
 
     test('list', function(){
         var frag = $.create('div{hello}#main>ul.list.bacon#bacon > li.hello$*4 > a[href=#$]{hello $x}', { x: 'world' })
-
         assert.equal(frag.toHTML(), '' +
             '<div id="main">' +
                 'hello' +
@@ -187,7 +186,22 @@ suite('samples', function(){
                 '</ul>' +
             '</div>'
         )
+    })
 
+    test('section +', function(){
+        var frag = $.create('section > p + div.places > li*5')
+        assert.equal(frag.toHTML(), '' +
+            '<section>' +
+                '<p></p>' +
+                '<div class="places">' +
+                    '<li></li>' +
+                    '<li></li>' +
+                    '<li></li>' +
+                    '<li></li>' +
+                    '<li></li>' +
+                '</div>' +
+            '</section>'
+        )
     })
 
 })
