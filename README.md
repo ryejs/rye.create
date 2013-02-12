@@ -25,3 +25,8 @@ Resulting in this DOM structure:
     </section>
 
 Calling `fragment.toHTML()` returns an HTML string representing it's contents.
+
+## Tests
+
+* node: run `npm test` (requires `mocha-phantomjs`)
+* browser: open `rye.create/test/index.html` in any browser
