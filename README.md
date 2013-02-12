@@ -16,11 +16,11 @@ Resulting in this DOM structure:
     <section>
         <p></p>
         <div class="places">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="#1"></a></li>
+            <li><a href="#2"></a></li>
+            <li><a href="#3"></a></li>
+            <li><a href="#4"></a></li>
+            <li><a href="#5"></a></li>
         </div>
     </section>
 
